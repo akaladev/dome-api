@@ -1,0 +1,25 @@
+apply plugin: 'java'
+
+sourceCompatibility = 1.5
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile group: 'org.springframework', name: 'spring-context', version: '4.3.2.RELEASE'
+    compile group: 'org.springframework', name: 'spring-core', version: '4.3.2.RELEASE'
+    compile group: 'org.springframework', name: 'spring-webmvc', version: '1.2.6'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.3.2'
+    compile group: 'net.sf.hibernate', name: 'hibernate', version: '2.1.8'
+    compile group: 'org.dom4j', name:'dom4j', version: '2.0.0'
+    compile group: 'xalan', name:'xalan', version: '2.7.2'
+    compile group: 'xerces', name:'xerces', version: '2.4.0'
+    compile group: 'cglib', name:'cglib', version: '3.2.4'
+    compile group: 'log4j', name:'log4j', version: '1.2.17'
+    compile group: 'org.apache.directory.studio', name:'org.apache.commons.collections', version: '3.2.1'
+    compile group: 'net.sf.ehcache',	name: 'ehcache',	version:'2.10.2.2.21'
+    compile group: 'org.springframework', name:'spring-tx', version: '4.3.2.RELEASE'
+}
