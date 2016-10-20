@@ -203,18 +203,6 @@ public abstract class AssertContract {
 		noNullElements(array, "[Assertion failed] - this array must not contain any null elements");
 	}
 
-	/**
-	 * AssertContract that a collection contains elements; that is, it must not be
-	 * {@code null} and must contain at least one element.
-	 * <pre class="code">AssertContract.notEmpty(collection, "Collection must contain elements");</pre>
-	 * @param collection the collection to check
-	 * @throws IllegalArgumentException if the collection is {@code null} or
-	 * contains no elements
-	 */
-	public static void notEmpty(Collection<?> collection) {
-		notEmpty(collection,
-				"[Assertion failed] - this collection must not be empty: it must contain at least 1 element");
-	}
 
 	/**
 	 * AssertContract that the provided object is an instance of the provided class.
