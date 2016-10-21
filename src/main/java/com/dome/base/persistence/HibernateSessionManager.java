@@ -75,7 +75,7 @@ public class HibernateSessionManager implements SessionManager{
      */  
     @Override
     public Session beginSession() throws HibernateException {
-       Session session = this.getSession();
+        Session session = this.getSession();
 
 		if (null != session) {
 			return session;
@@ -95,7 +95,8 @@ public class HibernateSessionManager implements SessionManager{
     @Override
     public void closeSession(Session session) throws HibernateException {
       Session currentSession = this.getSession();
-		if (null != currentSession && currentSession != session) {
+		
+        if (null != currentSession && currentSession != session) {
 			throw new HibernateException("Unable To Close Current Session");
 		}
 		
