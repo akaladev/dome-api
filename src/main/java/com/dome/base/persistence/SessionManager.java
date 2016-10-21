@@ -19,9 +19,8 @@ public interface SessionManager{
      *
      */
     @Override
-    public void initializeConfigs() throws HibernateException {
+    public void initializeConfigs() throws HibernateException;
                 
-    }
     
     /**
      * This is used to create and initializes sessions
