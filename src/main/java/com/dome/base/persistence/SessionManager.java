@@ -1,8 +1,8 @@
 package com.dome.base.persistence;
 
 
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
+import net.sf.hibernate.HibernateException;
+import net.sf.hibernate.Session;
 
 /**
  * This interface is implemented by classes 
@@ -18,22 +18,21 @@ public interface SessionManager{
      * This is used to initialize configs and data mapings.
      *
      */
-    @Override
     public void initializeConfigs() throws HibernateException;
                 
     
     /**
      * This is used to create and initializes sessions
      * for data access objects.
-     * @exception DataAccessException
+     * @exception HibernateException
      *            if session creation fails .
      */
-    public void beginSession() throws HibernateException;
+    public Session beginSession() throws HibernateException;
     
     /**
      * This is used to create and initializes sessions
      * for data access objects.
-     * @exception DataAccessException
+     * @exception HibernateException
      *            if session creation fails .
      */
     public void closeSession() throws HibernateException;

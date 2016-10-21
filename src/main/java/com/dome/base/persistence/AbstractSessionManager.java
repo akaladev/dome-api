@@ -1,12 +1,8 @@
 package com.dome.base.persistence;
 
 import java.io.File;
-import org.hibernate.HibernateException;
-import org.hibernate.Interceptor;
-import org.hibernate.MappingException;
-import org.hibernate.Session;
-import com.dome.base.persistence.SessionManager;
-import org.hibernate.Configuration;
+import net.sf.hibernate.HibernateException;
+import net.sf.hibernate.Session;
 
 /**
  * This class is responsible for managing and  
@@ -43,7 +39,7 @@ public abstract class AbstractSessionManager implements SessionManager{
      */  
     @Override
     public Session beginSession() throws HibernateException {
-      return sessionMnager.beginSession();
+      return sessionManager.beginSession();
     }
 
     /**
@@ -60,7 +56,7 @@ public abstract class AbstractSessionManager implements SessionManager{
     /**
      * This is used to create and initializes sessions
      * for data access objects.
-     * @exception DataAccessException
+     * @exception HibernateException
      *            if session creation fails .
      */
     @Override
@@ -71,7 +67,7 @@ public abstract class AbstractSessionManager implements SessionManager{
     /**
      * This is used to create and initializes sessions
      * for data access objects.
-     * @exception DataAccessException
+     * @exception HibernateException
      *            if session creation fails .
      */
     @Override
