@@ -35,7 +35,7 @@ public interface SessionManager{
      * @exception HibernateException
      *            if session creation fails .
      */
-    public void closeSession() throws HibernateException;
+    public void closeSession(Session session) throws HibernateException;
     
     /**
      * This is method is  used for getting the 
