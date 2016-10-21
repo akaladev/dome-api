@@ -21,6 +21,7 @@ import java.util.Collection;
  */
 public abstract class Contract {
 
+
 	/**
 	 * Contract a boolean expression, throwing an {@code IllegalArgumentException}
 	 * if the expression evaluates to {@code false}.
