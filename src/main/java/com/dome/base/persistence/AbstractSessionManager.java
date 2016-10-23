@@ -1,8 +1,8 @@
 package com.dome.base.persistence;
 
 import java.io.File;
-import net.sf.hibernate.HibernateException;
-import net.sf.hibernate.Session;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
 
 /**
  * This class is responsible for managing and  
@@ -49,8 +49,8 @@ public abstract class AbstractSessionManager implements SessionManager{
      *            if session creation fails .
      */ 
     @Override
-    public void closeSession() throws HibernateException {
-       sessionManager.closeSession();
+    public void closeSession(Session session) throws HibernateException {
+       sessionManager.closeSession(session);
     }
 
     /**

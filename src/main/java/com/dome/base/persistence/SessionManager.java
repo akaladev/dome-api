@@ -1,8 +1,8 @@
 package com.dome.base.persistence;
 
 
-import net.sf.hibernate.HibernateException;
-import net.sf.hibernate.Session;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
 
 /**
  * This interface is implemented by classes 

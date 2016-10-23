@@ -94,62 +94,6 @@ public abstract class Contract {
 	}
 
 	/**
-	 * Contract that the given String is not empty; that is,
-	 * it must not be {@code null} and not the empty String.
-	 * <pre class="code">Contract.hasLength(name, "Name must not be empty");</pre>
-	 * @param text the String to check
-	 * @param message the exception message to use if the assertion fails
-	 * @see StringUtils#hasLength
-	 * @throws IllegalArgumentException if the text is empty
-	 */
-	public static void hasLength(String text, String message) {
-		if (!StringUtils.hasLength(text)) {
-			throw new IllegalArgumentException(message);
-		}
-	}
-
-	/**
-	 * Contract that the given String is not empty; that is,
-	 * it must not be {@code null} and not the empty String.
-	 * <pre class="code">Contract.hasLength(name);</pre>
-	 * @param text the String to check
-	 * @see StringUtils#hasLength
-	 * @throws IllegalArgumentException if the text is empty
-	 */
-	public static void hasLength(String text) {
-		hasLength(text,
-				"[Assertion failed] - this String argument must have length; it must not be null or empty");
-	}
-
-	/**
-	 * Contract that the given String contains valid text content; that is, it must not
-	 * be {@code null} and must contain at least one non-whitespace character.
-	 * <pre class="code">Contract.hasText(name, "'name' must not be empty");</pre>
-	 * @param text the String to check
-	 * @param message the exception message to use if the assertion fails
-	 * @see StringUtils#hasText
-	 * @throws IllegalArgumentException if the text does not contain valid text content
-	 */
-	public static void hasText(String text, String message) {
-		if (!StringUtils.hasText(text)) {
-			throw new IllegalArgumentException(message);
-		}
-	}
-
-	/**
-	 * Contract that the given String contains valid text content; that is, it must not
-	 * be {@code null} and must contain at least one non-whitespace character.
-	 * <pre class="code">Contract.hasText(name, "'name' must not be empty");</pre>
-	 * @param text the String to check
-	 * @see StringUtils#hasText
-	 * @throws IllegalArgumentException if the text does not contain valid text content
-	 */
-	public static void hasText(String text) {
-		hasText(text,
-				"[Assertion failed] - this String argument must have text; it must not be null, empty, or blank");
-	}
-    
-	/**
 	 * Contract that an array contains no {@code null} elements.
 	 * <p>Note: Does not complain if the array is empty!
 	 * <pre class="code">Contract.noNullElements(array, "The array must contain non-null elements");</pre>
@@ -178,43 +122,6 @@ public abstract class Contract {
 		noNullElements(array, "[Assertion failed] - this array must not contain any null elements");
 	}
 
-
-	/**
-	 * Contract that the provided object is an instance of the provided class.
-	 * <pre class="code">Contract.instanceOf(Foo.class, foo);</pre>
-	 * @param type the type to check against
-	 * @param obj the object to check
-	 * @throws IllegalArgumentException if the object is not an instance of type
-	 * @see Class#isInstance
-	 */
-	public static void isInstanceOf(Class<?> type, Object obj) {
-		isInstanceOf(type, obj, "");
-	}
-    
-	/**
-	 * Contract that the provided object is an instance of the provided class.
-	 * <pre class="code">Contract.instanceOf(Foo.class, foo, "Processing Foo:");</pre>
-	 * @param type the type to check against
-	 * @param obj the object to check
-	 * @param message a message which will be prepended to the message generated
-	 * by this method in order to provide further context. It should normally end
-	 * in ":" or "." so that the generated message looks OK when appended to it.
-	 * @throws IllegalArgumentException if the object is not an instance of type
-	 * @see Class#isInstance
-	 */
-	public static void isInstanceOf(Class<?> type, Object obj, String message) {
-		notNull(type, "Type to check against must not be null");
-		if (!type.isInstance(obj)) {
-			isInstanceCheckFailed(type, obj, message);
-		}
-	}
-
-	private static void isInstanceCheckFailed(Class<?> type, Object obj, String message) {
-		throw new IllegalArgumentException(
-				(StringUtils.hasLength(message) ? message + " " : "") +
-				"Object of class [" + (obj != null ? obj.getClass().getName() : "null") +
-				"] must be an instance of " + type);
-	}
 
 	/**
 	 * Contract a boolean expression, throwing an {@code IllegalStateException}

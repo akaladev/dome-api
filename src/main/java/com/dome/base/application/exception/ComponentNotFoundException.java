@@ -5,7 +5,7 @@ package com.dome.base.application.exception;
  * Ioc container
  * @author Akala Michael
  */
-public class ComponentNotFoundApplicationException extends ApplicationException {
+public class ComponentNotFoundException extends ApplicationException {
 
 	/** Serial version UID */
 	private static final long serialVersionUID = 1L;
@@ -18,9 +18,9 @@ public class ComponentNotFoundApplicationException extends ApplicationException 
      *
 	 * @param aComponent Component id.
 	 */
-	public ComponentNotFoundApplicationException(final String component) {
+	public ComponentNotFoundException(final String component) {
 		super("Component not found: " + component);
-        this.component = aComponent;
+        this.component = component;
 	}
 
 	/**
@@ -29,7 +29,7 @@ public class ComponentNotFoundApplicationException extends ApplicationException 
 	 * @param aComponent Component id.
 	 * @param aCause Throwable cause.
 	 */
-	public ComponentNotFoundApplicationException(final String component, final Throwable cause) {
+	public ComponentNotFoundException(final String component, final Throwable cause) {
 		super("Component not found: " + component, cause);
         this.component = component;
 	}

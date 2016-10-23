@@ -1,6 +1,6 @@
 package com.dome.base.application;
 
-import com.dome.base.application.exception.ComponentNotFoundApplicationException;
+import com.dome.base.application.exception.ComponentNotFoundException;
 
 /**
  * it gives access to objects 
@@ -8,7 +8,7 @@ import com.dome.base.application.exception.ComponentNotFoundApplicationException
  * wraps around an Ioc container.
  * @author Akala Michael
  */
-public interface ApplicationContext {
+public interface ApplicationContextHandler {
 
     /**
      * Gets a component from context. The component may or may
@@ -16,9 +16,9 @@ public interface ApplicationContext {
      * @param name Name of component.
      * @return Component instance (can be singleton).
      * 
-     * @throws ComponentNotFoundApplicationException Thrown if 
+     * @throws ComponentNotFoundException Thrown if
      *      component is not found with given name.
      */
-    public Object getComponent(String name) throws ComponentNotFoundApplicationException;
+    public Object getComponent(String name) throws ComponentNotFoundException;
     
 }

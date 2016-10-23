@@ -1,11 +1,10 @@
 package com.dome.base.persistence;
 
-import java.io.File;
-import net.sf.hibernate.HibernateException;
-import net.sf.hibernate.Session;
-import net.sf.hibernate.cfg.Configuration;
-import net.sf.hibernate.SessionFactory;
-import com.dome.base.utils.Contract;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.SessionFactory;
+
 
 /**
  * This class is responsible for managing and  
@@ -20,7 +19,7 @@ public class HibernateSessionManager implements SessionManager{
     private SessionFactory sessionFactory;
     
     public HibernateSessionManager(String file){
-       this.setConfig(file);
+        this.setConfig(file);
     }
     
     /**
@@ -35,7 +34,8 @@ public class HibernateSessionManager implements SessionManager{
         
        if (null != this.configFile) {
 			conf.configure(this.configFile);
-       }   
+       }
+       this.sessionFactory = conf.buildSessionFactory();     
     } 
 
     /**
