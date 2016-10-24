@@ -52,7 +52,7 @@ public abstract class AbstractHibernateDao extends AbstractSessionManager {
       Session session = null;
 		try {
 			session = sessionManager.beginSession();
-            Query query = session.createQuery(MessageFormat.format("from {0}",entityClass.getName()));
+            Query query = session.createQuery(MessageFormat.format("from {0}",entityClass.getName().toUpperCase()));
             return query.list();
             
 		} catch (Exception e) {
