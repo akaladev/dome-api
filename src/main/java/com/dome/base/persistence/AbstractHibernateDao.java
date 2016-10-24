@@ -1,5 +1,6 @@
 package com.dome.base.persistence;
-import com.dome.base.persistence.AbstractSessionManager;
+
+
 import com.dome.base.persistence.HibernateSessionManager;
 import com.dome.base.application.Application;
 import com.dome.base.application.exception.DataAccessException;
@@ -11,7 +12,7 @@ import java.text.MessageFormat;
 import java.io.Serializable;
 
 
-public abstract class AbstractHibernateDao extends AbstractSessionManager {
+public abstract class AbstractHibernateDao {
     
     private HibernateSessionManager sessionManager;
     

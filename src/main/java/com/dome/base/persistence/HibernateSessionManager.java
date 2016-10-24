@@ -4,6 +4,9 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.SessionFactory;
+import java.io.InputStream;
+import java.util.Properties;
+import com.dome.base.application.exception.ConfigurationException;
 
 
 /**
@@ -18,8 +21,44 @@ public class HibernateSessionManager implements SessionManager{
     private String configFile;
     private SessionFactory sessionFactory;
     
-    public HibernateSessionManager(String file){
-        this.setConfig(file);
+    public HibernateSessionManager() throws ConfigurationException{
+        
+        InputStream propertiesStream = null;
+        String resourceName = null;
+        try {
+            resourceName = "/conf/application/local.properties";
+            Class thisClass = HibernateSessionManager.class;
+            propertiesStream
+              = thisClass.getResourceAsStream(resourceName);
+            if (propertiesStream==null) {
+                String msg;
+                msg = "unable to open file " + resourceName;
+                throw new ConfigurationException(toString(), msg);
+            } // if
+            configProperties = new Properties();
+            configProperties.load(propertiesStream);
+            String datasourceProperty = "datasource.config.dir";
+            datasourceConfigDir
+              = (String)myProperties.get(datasourceProperty);
+            if (datasourceConfigDir==null) {
+                String msg;
+                msg = datasourceProperty + " is not specified.";
+                throw new ConfigurationException(toString(), msg);
+            }
+        } catch (Exception e) {
+            throw new ConfigurationException(toString(), e);
+        } finally {
+            if (propertiesStream!=null) {
+                try {
+                    propertiesStream.close();
+                } catch (Exception  e) {
+                    String msg
+                      = "Exception thrown while closing "
+                      + resourceName;
+                     throw new ConfigurationException(msg, e);
+                } // try
+            } // if
+        } // try
     }
     
     /**
