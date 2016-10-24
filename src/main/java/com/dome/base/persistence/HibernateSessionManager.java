@@ -37,14 +37,15 @@ public class HibernateSessionManager implements SessionManager{
             } // if
             configProperties = new Properties();
             configProperties.load(propertiesStream);
-            String datasourceProperty = "datasource.config.dir";
-            datasourceConfigDir
+            String datasourceProperty = "datasource.config.path";
+            datasourceConfigPath
               = (String)myProperties.get(datasourceProperty);
-            if (datasourceConfigDir==null) {
+            if (datasourceConfigPath==null) {
                 String msg;
                 msg = datasourceProperty + " is not specified.";
                 throw new ConfigurationException(toString(), msg);
             }
+            initializeConfigs(datasourceConfigPath)
         } catch (Exception e) {
             throw new ConfigurationException(toString(), e);
         } finally {
@@ -68,10 +69,11 @@ public class HibernateSessionManager implements SessionManager{
      *            if session creation fails .
      */
     @Override
-    public void initializeConfigs() throws HibernateException {
+    public void initializeConfigs(String file) throws HibernateException {
        Configuration conf = new Configuration();
         
-       if (null != this.configFile) {
+       if (null != this.file) {
+            this.configFile = file;
 			conf.configure(this.configFile);
        }
        this.sessionFactory = conf.buildSessionFactory();     
