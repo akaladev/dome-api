@@ -9,10 +9,10 @@ import com.dome.base.application.exception.ComponentNotFoundException;
 
 public class Application implements ApplicationContextHandler{
     
-     ApplicationContext context;
+     static ApplicationContext context;
     
      public Application(){
-         initializeApp("beans.xml");
+         initializeApp("/conf/spring/beans.xml");
      }  
      public static void initializeApp(String resource){
        context =

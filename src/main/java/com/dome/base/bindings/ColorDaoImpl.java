@@ -11,6 +11,11 @@ public class ColorDaoImpl extends AbstractHibernateDao implements ColorDao{
     }
     @Override
     public List<Color> findByList() {
-        return super.findList(this.getClass());
+        return super.findList(Color.class);
+    }
+    
+    @Override
+    public void save(Color color) {
+        super.save(color);
     }
 }

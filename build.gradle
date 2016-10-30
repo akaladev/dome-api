@@ -18,8 +18,10 @@ dependencies {
     compile group: 'xalan', name:'xalan', version: '2.7.2'
     compile group: 'xerces', name:'xerces', version: '2.4.0'
     compile group: 'cglib', name:'cglib', version: '3.2.4'
-    compile group: 'log4j', name:'log4j', version: '1.2.17'
     compile group: 'org.apache.directory.studio', name:'org.apache.commons.collections', version: '3.2.1'
     compile group:'org.hibernate', name:'hibernate-core', version:'3.3.1.GA'
     compile group: 'org.springframework', name:'spring-tx', version: '4.3.2.RELEASE'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.5'
+    compile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.5'
+    compile group: 'javassist', name: 'javassist', version: '3.12.1.GA'
 }

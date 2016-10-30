@@ -8,7 +8,8 @@ import java.io.InputStream;
 import java.util.Properties;
 import com.dome.base.persistence.SessionManager;
 import com.dome.base.application.exception.ConfigurationException;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * This class is responsible for managing and  
@@ -21,6 +22,9 @@ public class HibernateSessionManager implements SessionManager{
     
     private String configFile;
     private SessionFactory sessionFactory;
+    private Properties configProperties;
+    
+    private static final Logger LOGGER = LoggerFactory.getLogger(HibernateSessionManager.class);
     
     public HibernateSessionManager() throws ConfigurationException{
         
@@ -36,7 +40,7 @@ public class HibernateSessionManager implements SessionManager{
                 msg = "unable to open file " + resourceName;
                 throw new ConfigurationException(msg);
             } // if
-            Properties configProperties = new Properties();
+            configProperties = new Properties();
             configProperties.load(propertiesStream);
             String datasourceProperty = "datasource.config.path";
             String datasourceConfigPath
@@ -48,7 +52,7 @@ public class HibernateSessionManager implements SessionManager{
             }
             initializeConfigs(datasourceConfigPath);
         } catch (Exception e) {
-            throw new ConfigurationException(toString(), e);
+            throw new ConfigurationException(e.getMessage(),e);
         } finally {
             if (propertiesStream!=null) {
                 try {

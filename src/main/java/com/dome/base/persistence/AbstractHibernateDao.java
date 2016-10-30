@@ -60,7 +60,7 @@ public abstract class AbstractHibernateDao {
       Session session = null;
 		try {
 			session = sessionManager.beginSession();
-            Query query = session.createQuery(MessageFormat.format("from {0}",entityClass.getName().toUpperCase()));
+            Query query = session.createQuery(MessageFormat.format("from {0}", entityClass.getSimpleName()));
             return query.list();
             
 		} catch (Exception e) {
@@ -87,7 +87,7 @@ public abstract class AbstractHibernateDao {
 
 		try {
 			session = sessionManager.beginSession();
-			session.saveOrUpdate(entity);
+			session.save(entity);
 			session.flush();
 		} catch(Exception e) {
 			throw new DataAccessException(entity.getClass(), e);

@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface ColorDao{
     public List<Color> findByList();
+    public void save(Color color);
 } 

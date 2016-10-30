@@ -10,13 +10,16 @@
         </property>
         <!-- Assume test is the database name -->
         <property name="hibernate.connection.url">
-            jdbc:mysql://127.0.0.1:3306/test
+            jdbc:mysql://127.0.0.1:3306/domedb
         </property>
         <property name="hibernate.connection.username">
             root
         </property>
+        <property name="hibernate.show_sql">true</property>
+       <!-- <property name="hibernate.hbm2ddl.auto">create</property>-->
 
         <!-- List of XML mapping files -->
-        <mapping resource="test.hbm.xml"/>
+       <!-- <mapping resource="test.hbm.xml"/> -->
+        <mapping resource="conf/mapping/color.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>
