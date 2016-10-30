@@ -14,7 +14,7 @@ public class Application implements ApplicationContextHandler{
      public Application(){
          initializeApp("beans.xml");
      }  
-     public void initializeApp(String resource){
+     public static void initializeApp(String resource){
        context =
             new ClassPathXmlApplicationContext(resource);  
      }

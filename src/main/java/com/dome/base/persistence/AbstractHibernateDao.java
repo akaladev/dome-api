@@ -2,8 +2,10 @@ package com.dome.base.persistence;
 
 
 import com.dome.base.persistence.HibernateSessionManager;
+import com.dome.base.persistence.SessionManager;
 import com.dome.base.application.Application;
 import com.dome.base.application.exception.DataAccessException;
+import com.dome.base.application.exception.ConfigurationException;
 import org.hibernate.Session;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -14,10 +16,15 @@ import java.io.Serializable;
 
 public abstract class AbstractHibernateDao {
     
-    private HibernateSessionManager sessionManager;
+    private SessionManager sessionManager;
     
     public AbstractHibernateDao(){
-        
+        //TODO : make use of Ioc container.
+        try{
+          sessionManager = new HibernateSessionManager();
+        }catch(ConfigurationException configExp){
+          configExp.printStackTrace();  
+        }
     }
 
     

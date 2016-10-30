@@ -18,7 +18,7 @@ public interface SessionManager{
      * This is used to initialize configs and data mapings.
      *
      */
-    public void initializeConfigs() throws HibernateException;
+    public void initializeConfigs(String file) throws HibernateException;
                 
     
     /**

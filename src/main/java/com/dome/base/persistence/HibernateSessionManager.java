@@ -6,6 +6,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.SessionFactory;
 import java.io.InputStream;
 import java.util.Properties;
+import com.dome.base.persistence.SessionManager;
 import com.dome.base.application.exception.ConfigurationException;
 
 
@@ -33,19 +34,19 @@ public class HibernateSessionManager implements SessionManager{
             if (propertiesStream==null) {
                 String msg;
                 msg = "unable to open file " + resourceName;
-                throw new ConfigurationException(toString(), msg);
+                throw new ConfigurationException(msg);
             } // if
-            configProperties = new Properties();
+            Properties configProperties = new Properties();
             configProperties.load(propertiesStream);
             String datasourceProperty = "datasource.config.path";
-            datasourceConfigPath
-              = (String)myProperties.get(datasourceProperty);
+            String datasourceConfigPath
+              = (String)configProperties.get(datasourceProperty);
             if (datasourceConfigPath==null) {
                 String msg;
                 msg = datasourceProperty + " is not specified.";
-                throw new ConfigurationException(toString(), msg);
+                throw new ConfigurationException(msg);
             }
-            initializeConfigs(datasourceConfigPath)
+            initializeConfigs(datasourceConfigPath);
         } catch (Exception e) {
             throw new ConfigurationException(toString(), e);
         } finally {
@@ -72,7 +73,7 @@ public class HibernateSessionManager implements SessionManager{
     public void initializeConfigs(String file) throws HibernateException {
        Configuration conf = new Configuration();
         
-       if (null != this.file) {
+       if (null != file) {
             this.configFile = file;
 			conf.configure(this.configFile);
        }
@@ -102,7 +103,7 @@ public class HibernateSessionManager implements SessionManager{
 	 */
 	private synchronized SessionFactory getSessionFactory() throws HibernateException {
 		if(null == this.sessionFactory) {
-			this.initializeConfigs();
+			this.initializeConfigs(configFile);
 		}
 		return this.sessionFactory;
 	}
