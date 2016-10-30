@@ -1,6 +1,7 @@
 package com.dome.base.bindings;
 
 import com.dome.base.model.Color;
+import com.dome.base.bindings.ColorDao;
 import com.dome.base.persistence.AbstractHibernateDao;
 import java.util.List;
 

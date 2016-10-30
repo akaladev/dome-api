@@ -1,6 +1,6 @@
 package com.dome.base.model;
 
-public class ProvicialStatus {
+public class ProvincialStatus {
     private long id;
     private String name;
     
