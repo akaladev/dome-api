@@ -4,7 +4,7 @@ public class ProvincialStatus {
     private long id;
     private String name;
     
-    public ProvicialStatus(){
+    public ProvincialStatus(){
         
     }
 

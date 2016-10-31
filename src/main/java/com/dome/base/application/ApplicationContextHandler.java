@@ -19,6 +19,6 @@ public interface ApplicationContextHandler {
      * @throws ComponentNotFoundException Thrown if
      *      component is not found with given name.
      */
-    public Object getComponent(String name) throws ComponentNotFoundException;
+    public  Object getComponent(String name) throws ComponentNotFoundException;
     
 }

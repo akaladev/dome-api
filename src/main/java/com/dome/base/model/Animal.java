@@ -9,7 +9,7 @@ public class Animal{
     private String description;
     private Specie specie;
     private NationalStatus nationalStatus;
-    private ProvicialStatus provicialStatus;
+    private ProvincialStatus provincialStatus;
     
     public Animal(){
         
@@ -79,11 +79,11 @@ public class Animal{
         this.nationalStatus = nationalStatus;
     }
 
-    public ProvicialStatus getProvicialStatus() {
-        return provicialStatus;
+    public ProvincialStatus getProvicialStatus() {
+        return provincialStatus;
     }
 
-    public void setProvicialStatus(ProvicialStatus provicialStatus) {
-        this.provicialStatus = provicialStatus;
+    public void setProvicialStatus(ProvincialStatus provincialStatus) {
+        this.provincialStatus = provincialStatus;
     }
 }
