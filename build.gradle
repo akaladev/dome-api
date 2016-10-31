@@ -14,11 +14,11 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
+apply plugin: 'war'
 
-
-jar {
+war {
     baseName = 'dome-api'
-    version = '0.0.1-SNAPSHOT'
+    version = ''
 }
 
 sourceCompatibility = 1.6
@@ -46,7 +46,6 @@ configurations {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
-    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.3.2'
     compile group: 'net.sf.hibernate', name: 'hibernate', version: '2.1.8'
     compile group: 'org.dom4j', name:'dom4j', version: '2.0.0'
     compile group: 'xalan', name:'xalan', version: '2.7.2'
