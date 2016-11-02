@@ -7,6 +7,7 @@ import com.dome.base.application.Application;
 import com.dome.base.application.exception.ComponentNotFoundException;
 import com.dome.base.model.NationalStatus;
 
+import com.dome.base.repository.BaseRepository;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -26,7 +27,7 @@ import static org.springframework.http.HttpStatus.*;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 
-@Api(value = "Nations", basePath = "/nation", description = "Create and Get National Statuses Added", produces = "application/json")
+@Api(value = "Nations", basePath = "/nation",  produces = "application/json")
 
 @RestController
 public class NationalController {
@@ -37,15 +38,8 @@ public class NationalController {
             @ApiResponse(code = 200, message = "") })
     @RequestMapping(value = "/nation/findByList", method = GET)
     public ResponseEntity<List<NationalStatus>>  getStatus(){
-     try {
-          Application application = new Application();
-          NationalStatusDao dao = (NationalStatusDao) application.getComponent("nationalStatusDaoImpl");
-          List<NationalStatus> statusList = dao.findByList();
-          return new ResponseEntity<List<NationalStatus>>(statusList, OK);
-     }catch(ComponentNotFoundException exp){
-            exp.printStackTrace();
-        }
-        return null;
+        List<NationalStatus> list = BaseRepository.findList(NationalStatus.class);
+        return new ResponseEntity<List<NationalStatus>>(list, OK);
     }
     
     @ApiOperation(value = "add a given status.")
@@ -54,15 +48,9 @@ public class NationalController {
     })
     @RequestMapping(value = "/nation/", method = POST)
     public ResponseEntity<Void> createStatus(@RequestBody NationalStatus status, UriComponentsBuilder ucBuilder) {
-        try {
-          Application application = new Application();
-           NationalStatusDao dao = (NationalStatusDao) application.getComponent("nationalStatusDaoImpl");
-          dao.save(status);
-          HttpHeaders headers = new HttpHeaders();
-     }catch(ComponentNotFoundException exp){
-            exp.printStackTrace();
-        }
-        return null;        
+        BaseRepository.save(status, NationalStatus.class);
+        HttpHeaders headers = new HttpHeaders();
+        return new ResponseEntity<Void>(headers, CREATED);
     }
     
 }

@@ -18,16 +18,11 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @EnableSwagger2
 @ComponentScan("com.dome.base.service")
-public class SpringBootWebApplication extends SpringBootServletInitializer {
+public class SpringBootWebApplication{
     public static void main(String[] args) {
         SpringApplication.run(SpringBootWebApplication.class, args);
     }
 
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(SpringBootWebApplication.class);
-    }
-    
     @Bean
     public Docket swaggerSpringMvcPlugin() {
         return new Docket(DocumentationType.SWAGGER_2)
@@ -40,13 +35,13 @@ public class SpringBootWebApplication extends SpringBootServletInitializer {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Dome API")
-                .description("An API that exposes backend data ")
-                .termsOfServiceUrl("")
-                .contact("Akala Michael")
-                .license("Apache License Version 2.0")
-                .licenseUrl("")
-                .version("1.0")
+               // .title("Dome A)
+               // .description("An API that exposes backend data ")
+               // .termsOfServiceUrl("")
+               // .contact("Akala Michael")
+               // .license("Apache License Version 2.0")
+               // .licenseUrl("")
+               // .version("1.0")
                 .build();
     }
 

@@ -151,5 +151,10 @@ public abstract class Contract {
 	public static void state(boolean expression) {
 		state(expression, "[Assertion failed] - this state invariant must be true");
 	}
+    
+    public static String getBeanId(Class<? extends Object> componentClass){
+        String className = componentClass.getSimpleName();
+        return className.substring(0, 1).toLowerCase() + className.substring(1) +"DaoImpl";
+    }
 
 }

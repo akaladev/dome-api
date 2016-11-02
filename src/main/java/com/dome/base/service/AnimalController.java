@@ -2,10 +2,9 @@ package com.dome.base.service;
 
 import java.util.List;
 
-import com.dome.base.bindings.ColorDao;
 import com.dome.base.application.Application;
 import com.dome.base.application.exception.ComponentNotFoundException;
-import com.dome.base.model.Color;
+import com.dome.base.model.Animal;
 import com.dome.base.repository.BaseRepository;
 
 import io.swagger.annotations.Api;
@@ -27,28 +26,28 @@ import static org.springframework.http.HttpStatus.*;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 
-@Api(value = "Colors", basePath = "/color",  produces = "application/json")
+@Api(value = "animal", basePath = "/animal",  produces = "application/json")
 
 @RestController
-public class ColorController {
+public class AnimalController {
     
     
-    @ApiOperation(value = "Find all stored colors")
+    @ApiOperation(value = "find all animals")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "") })
-    @RequestMapping(value = "/color/findByList", method = GET)
-    public ResponseEntity<List<Color>>  getColor(){
-        List<Color> colors = BaseRepository.findList(Color.class);
-        return new ResponseEntity<List<Color>>(colors, OK);
+    @RequestMapping(value = "/animal/findByList", method = GET)
+    public ResponseEntity<List<Animal>>  getAnimals(){
+        List<Animal> animals = BaseRepository.findList(Animal.class);
+        return new ResponseEntity<List<Animal>>(animals, OK);
     }
     
-    @ApiOperation(value = "add a color with a given name.")
+    @ApiOperation(value = "add instruction")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "")
     })
-    @RequestMapping(value = "/color/", method = POST)
-    public ResponseEntity<Void> createColor(@RequestBody Color color, UriComponentsBuilder ucBuilder) {
-        BaseRepository.save(color, Color.class);
+    @RequestMapping(value = "/animal/", method = POST)
+    public ResponseEntity<Void> createAnimal(@RequestBody Animal animal, UriComponentsBuilder ucBuilder) {
+        BaseRepository.save(animal, Animal.class);
         HttpHeaders headers = new HttpHeaders();
         return new ResponseEntity<Void>(headers, CREATED);
     }

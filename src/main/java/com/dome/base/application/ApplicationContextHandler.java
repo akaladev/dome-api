@@ -16,9 +16,8 @@ public interface ApplicationContextHandler {
      * @param name Name of component.
      * @return Component instance (can be singleton).
      * 
-     * @throws ComponentNotFoundException Thrown if
-     *      component is not found with given name.
+     *
      */
-    public  Object getComponent(String name) throws ComponentNotFoundException;
+    public  Object getComponentName(String name);
     
 }

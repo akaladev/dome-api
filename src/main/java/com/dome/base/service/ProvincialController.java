@@ -5,8 +5,10 @@ import java.util.List;
 import com.dome.base.bindings.ProvincialStatusDao;
 import com.dome.base.application.Application;
 import com.dome.base.application.exception.ComponentNotFoundException;
+
 import com.dome.base.model.ProvincialStatus;
 
+import com.dome.base.repository.BaseRepository;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -26,7 +28,7 @@ import static org.springframework.http.HttpStatus.*;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 
-@Api(value = "Province", basePath = "/province", description = "Create and Get Provincial Statuses Added", produces = "application/json")
+@Api(value = "Province", basePath = "/province",  produces = "application/json")
 
 @RestController
 public class ProvincialController {
@@ -37,15 +39,8 @@ public class ProvincialController {
             @ApiResponse(code = 200, message = "") })
     @RequestMapping(value = "/province/findByList", method = GET)
     public ResponseEntity<List<ProvincialStatus>>  getStatus(){
-     try {
-          Application application = new Application();
-          ProvincialStatusDao dao = (ProvincialStatusDao) application.getComponent("pationalStatusDaoImpl");
-          List<ProvincialStatus> statusList = dao.findByList();
-          return new ResponseEntity<List<ProvincialStatus>>(statusList, OK);
-     }catch(ComponentNotFoundException exp){
-            exp.printStackTrace();
-        }
-        return null;
+        List<ProvincialStatus> list = BaseRepository.findList(ProvincialStatus.class);
+        return new ResponseEntity<List<ProvincialStatus>>(list, OK);
     }
     
     @ApiOperation(value = "add a given status.")
@@ -54,15 +49,9 @@ public class ProvincialController {
     })
     @RequestMapping(value = "/province/", method = POST)
     public ResponseEntity<Void> createStatus(@RequestBody ProvincialStatus status, UriComponentsBuilder ucBuilder) {
-        try {
-          Application application = new Application();
-           ProvincialStatusDao dao = (ProvincialStatusDao) application.getComponent("pationalStatusDaoImpl");
-          dao.save(status);
-          HttpHeaders headers = new HttpHeaders();
-     }catch(ComponentNotFoundException exp){
-            exp.printStackTrace();
-        }
-        return null;        
+        BaseRepository.save(status, ProvincialStatus.class);
+        HttpHeaders headers = new HttpHeaders();
+        return new ResponseEntity<Void>(headers, CREATED);
     }
     
 }

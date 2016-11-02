@@ -9,15 +9,15 @@ import com.dome.base.application.exception.ComponentNotFoundException;
 
 public class Application implements ApplicationContextHandler{
     
-     private ApplicationContext context;
-     private final String resource ="/conf/spring/beans.xml";
+     
+     private static final String resource ="/conf/spring/beans.xml";
+     private static ApplicationContext context =new ClassPathXmlApplicationContext(resource);
 
-    public Application(){
-        context =
-                new ClassPathXmlApplicationContext(resource);
-    }
-
-     public  Object getComponent(String name) throws ComponentNotFoundException{
+     public  String getComponentName(String name) {
+       return null;
+     }
+    
+     public static Object getComponent(String name) throws ComponentNotFoundException{
        return context.getBean(name);
      }
 }
