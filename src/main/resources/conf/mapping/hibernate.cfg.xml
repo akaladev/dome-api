@@ -22,11 +22,11 @@
         <!-- List of XML mapping files -->
        <!-- <mapping resource="test.hbm.xml"/> -->
         <mapping resource="conf/mapping/color.hbm.xml"/>
-        <mapping resource="conf/mapping/animal.hbm.xml"/>
         <mapping resource="conf/mapping/instruction.hbm.xml"/>
         <mapping resource="conf/mapping/nationalstatus.hbm.xml"/>
         <mapping resource="conf/mapping/provincialstatus.hbm.xml"/>
         <mapping resource="conf/mapping/reservation.hbm.xml"/>
         <mapping resource="conf/mapping/specie.hbm.xml"/>
+        <mapping resource="conf/mapping/animal.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

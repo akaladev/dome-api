@@ -79,11 +79,11 @@ public class Animal{
         this.nationalStatus = nationalStatus;
     }
 
-    public ProvincialStatus getProvicialStatus() {
+    public ProvincialStatus getProvincialStatus() {
         return provincialStatus;
     }
 
-    public void setProvicialStatus(ProvincialStatus provincialStatus) {
+    public void setProvincialStatus(ProvincialStatus provincialStatus) {
         this.provincialStatus = provincialStatus;
     }
 }

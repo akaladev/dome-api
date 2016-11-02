@@ -45,7 +45,7 @@
         
         <many-to-one name="nationalStatus" class="com.dome.base.model.NationalStatus" column="national_status_id" cascade="all" not-null="true" />
         
-        <many-to-one name="provincialStatus" class="com.dome.base.model.provincialStatus" column="provincial_status_id" cascade="all" not-null="true" />
+        <many-to-one name="provincialStatus" class="com.dome.base.model.ProvincialStatus" column="provincial_status_id" cascade="all" not-null="true" />
         
         
         

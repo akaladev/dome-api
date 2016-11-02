@@ -19,19 +19,19 @@ public class Reservation{
         this.id = id;
     }
 
-    public Date getStartDate() {
+    public Date getStartdate() {
         return startdate;
     }
 
-    public void setStartDate(Date startdate) {
+    public void setStartdate(Date startdate) {
         this.startdate = startdate;
     }
 
-    public Date getEndDate() {
+    public Date getEnddate() {
         return enddate;
     }
 
-    public void setEndDate(Date enddate) {
+    public void setEnddate(Date enddate) {
         this.enddate = enddate;
     }
 
