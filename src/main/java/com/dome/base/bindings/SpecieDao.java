@@ -7,4 +7,5 @@ import java.util.List;
 public interface SpecieDao{
     public List<Specie> findByList();
     public void save(Specie model);
+    public Specie find(long id);
 } 

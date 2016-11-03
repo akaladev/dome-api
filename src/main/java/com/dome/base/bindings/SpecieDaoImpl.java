@@ -1,5 +1,6 @@
 package com.dome.base.bindings;
 
+import com.dome.base.model.ProvincialStatus;
 import com.dome.base.model.Specie;
 import com.dome.base.bindings.SpecieDao;
 import com.dome.base.persistence.AbstractHibernateDao;
@@ -18,5 +19,10 @@ public class SpecieDaoImpl extends AbstractHibernateDao implements SpecieDao{
     @Override
     public void save(Specie model) {
         super.save(model);
+    }
+
+    @Override
+    public Specie find(long id) {
+        return (Specie) super.find(Specie.class, id);
     }
 }

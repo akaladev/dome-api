@@ -2,6 +2,7 @@ package com.dome.base.bindings;
 
 import com.dome.base.model.NationalStatus;
 import com.dome.base.bindings.NationalStatusDao;
+import com.dome.base.model.ProvincialStatus;
 import com.dome.base.persistence.AbstractHibernateDao;
 import java.util.List;
 
@@ -18,5 +19,10 @@ public class NationalStatusDaoImpl extends AbstractHibernateDao implements Natio
     @Override
     public void save(NationalStatus model) {
         super.save(model);
+    }
+
+    @Override
+    public NationalStatus find(long id) {
+        return (NationalStatus) super.find(NationalStatus.class, id);
     }
 }

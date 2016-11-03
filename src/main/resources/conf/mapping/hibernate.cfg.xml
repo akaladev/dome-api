@@ -17,7 +17,7 @@
         </property>
         <property name="hibernate.show_sql">true</property>
         <property name="connection.autocommit">true</property>
-       <!-- <property name="hibernate.hbm2ddl.auto">create</property>-->
+       <property name="hibernate.hbm2ddl.auto">create</property>
 
         <!-- List of XML mapping files -->
        <!-- <mapping resource="test.hbm.xml"/> -->

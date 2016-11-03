@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.dome.base.application.Application;
 import com.dome.base.application.exception.ComponentNotFoundException;
-import com.dome.base.model.Animal;
+import com.dome.base.model.*;
 import com.dome.base.repository.BaseRepository;
 
 import io.swagger.annotations.Api;
@@ -46,10 +46,25 @@ public class AnimalController {
             @ApiResponse(code = 200, message = "")
     })
     @RequestMapping(value = "/animal/", method = POST)
-    public ResponseEntity<Void> createAnimal(@RequestBody Animal animal, UriComponentsBuilder ucBuilder) {
-        BaseRepository.save(animal, Animal.class);
-        HttpHeaders headers = new HttpHeaders();
-        return new ResponseEntity<Void>(headers, CREATED);
+    public ResponseEntity<Void> createAnimal(@RequestBody AnimalFacade facade, UriComponentsBuilder ucBuilder) {
+
+       Color color= (Color) BaseRepository.find(Color.class, facade.getColorId());
+       Specie specie= (Specie) BaseRepository.find(Specie.class, facade.getSpecieId());
+       NationalStatus nstatus = (NationalStatus) BaseRepository.find(NationalStatus.class,facade.getNationId());
+       ProvincialStatus pstatus = (ProvincialStatus) BaseRepository.find(ProvincialStatus.class, facade.getNationId());
+       Animal model =new  Animal();
+       model.setName(facade.getName());
+       model.setColor(color);
+       model.setScientificName(facade.getScientificName());
+       model.setDescription(facade.getDescription());
+       model.setImage(facade.getImage());
+       model.setImageGeo(facade.getImageGeo());
+       model.setNationalStatus(nstatus);
+       model.setProvincialStatus(pstatus);
+       model.setSpecie(specie);
+       BaseRepository.save(model, Animal.class);
+       HttpHeaders headers = new HttpHeaders();
+       return new ResponseEntity<Void>(headers, CREATED);
     }
     
 }

@@ -1,5 +1,6 @@
 package com.dome.base.bindings;
 
+import com.dome.base.model.NationalStatus;
 import com.dome.base.model.ProvincialStatus;
 import com.dome.base.bindings.ProvincialStatusDao;
 import com.dome.base.persistence.AbstractHibernateDao;
@@ -18,5 +19,10 @@ public class ProvincialStatusDaoImpl extends AbstractHibernateDao implements Pro
     @Override
     public void save(ProvincialStatus model) {
         super.save(model);
+    }
+
+    @Override
+    public ProvincialStatus find(long id) {
+        return  (ProvincialStatus) super.find(ProvincialStatus.class, id);
     }
 }

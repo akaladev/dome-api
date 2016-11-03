@@ -1,17 +1,18 @@
 package com.dome.base.model;
 
-public class Animal{
+public class AnimalFacade{
     private long id;
     private String name;
     private String scientificName;
     private String image;
     private String imageGeo;
     private String description;
-    private Specie specie;
-    private NationalStatus nationalStatus;
-    private ProvincialStatus provincialStatus;
-    private Color color;
-    public Animal(){
+    private long specieId;
+    private long nationId;
+    private long provinceId;
+    private long colorId;
+    
+    public AnimalFacade(){
         
     }
 
@@ -63,35 +64,35 @@ public class Animal{
         this.description = description;
     }
 
-    public Specie getSpecie() {
-        return specie;
+    public long getSpecieId() {
+        return specieId;
     }
 
-    public void setSpecie(Specie specie) {
-        this.specie = specie;
+    public void setSpecieId(long specieId) {
+        this.specieId = specieId;
     }
 
-    public NationalStatus getNationalStatus() {
-        return nationalStatus;
+    public long getNationId() {
+        return nationId;
     }
 
-    public void setNationalStatus(NationalStatus nationalStatus) {
-        this.nationalStatus = nationalStatus;
+    public void setNationId(long nationId) {
+        this.nationId = nationId;
     }
 
-    public ProvincialStatus getProvincialStatus() {
-        return provincialStatus;
+    public long getProvinceId() {
+        return provinceId;
     }
 
-    public void setProvincialStatus(ProvincialStatus provincialStatus) {
-        this.provincialStatus = provincialStatus;
+    public void setProvinceId(long provinceId) {
+        this.provinceId = provinceId;
     }
 
-    public Color getColor() {
-        return color;
+    public long getColorId() {
+        return colorId;
     }
 
-    public void setColor(Color color) {
-        this.color = color;
+    public void setColorId(long colorId) {
+        this.colorId = colorId;
     }
 }

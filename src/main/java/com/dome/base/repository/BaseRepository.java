@@ -21,6 +21,18 @@ public class BaseRepository {
         }
         return null;
     }
+
+    public static Object find(Class<? extends Object> entityClass, long id){
+        try{
+            String beanId = Contract.getBeanId(entityClass);
+            AbstractHibernateDao dao = (AbstractHibernateDao) Application.getComponent(beanId);
+            return dao.find(entityClass, id);
+
+        }catch(ComponentNotFoundException exp ){
+            exp.printStackTrace();
+        }
+        return null;
+    }
     
     public static <T>  void save(T model, Class<? extends Object> entityClass){
         try{

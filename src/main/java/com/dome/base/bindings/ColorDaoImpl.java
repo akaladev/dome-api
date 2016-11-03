@@ -19,4 +19,9 @@ public class ColorDaoImpl extends AbstractHibernateDao implements ColorDao{
     public void save(Color color) {
         super.save(color);
     }
+
+    @Override
+    public Color find(long id) {
+       return  (Color) super.find(Color.class, id);
+    }
 }

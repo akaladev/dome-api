@@ -33,7 +33,7 @@ public abstract class AbstractHibernateDao {
      *
 	 */
     
-    public Object find(Class<? extends Object> entityClass, Serializable id){
+    public Object find(Class<? extends Object> entityClass, long id){
       Session session = null;
 		try {
 			session = sessionManager.beginSession();
