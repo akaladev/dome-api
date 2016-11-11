@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+        "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd" >
+
+<hibernate-mapping package="com.dome.base.model" >
+
+    <class name="Animal"
+           table="animal"
+           lazy="true">
+
+        <!-- Common id property. -->
+        <id name="id"
+            type="long"
+            column="id"
+                >
+            <generator class="native"/>
+        </id>
+
+        <property   name="name"
+                    type="string"
+                    column="name">
+        </property>
+
+        <property   name="scientificName"
+                    type="string"
+                    column="scientific_name">
+        </property>
+        
+        <property   name="image"
+                    type="string"
+                    column="image">
+        </property>
+    
+        <property   name="imageGeo"
+                    type="string"
+                    column="image_geo">
+        </property>
+        
+        <property   name="description"
+                    type="string"
+                    column="description">
+        </property>
+        
+        <many-to-one name="specie" class="com.dome.base.model.Specie" column="specie_id" cascade="all" not-null="true" />
+        
+        <many-to-one name="nationalStatus" class="com.dome.base.model.NationalStatus" column="national_status_id" cascade="all" not-null="true" />
+        
+        <many-to-one name="provincialStatus" class="com.dome.base.model.ProvincialStatus" column="provincial_status_id" cascade="all" not-null="true" />
+
+        <many-to-one name="color" class="com.dome.base.model.Color" column="color_id" cascade="all" not-null="true" />
+
+
+
+    </class>
+
+</hibernate-mapping>

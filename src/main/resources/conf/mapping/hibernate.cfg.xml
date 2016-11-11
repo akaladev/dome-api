@@ -10,14 +10,17 @@
         </property>
         <!-- Assume test is the database name -->
         <property name="hibernate.connection.url">
-            jdbc:mysql://127.0.0.1:3306/domedb
+            jdbc:mysql://70.32.108.82:3306/grouptestdb
         </property>
         <property name="hibernate.connection.username">
-            root
+            sample
+        </property>
+        <property name="hibernate.connection.password">
+            test
         </property>
         <property name="hibernate.show_sql">true</property>
         <property name="connection.autocommit">true</property>
-       <property name="hibernate.hbm2ddl.auto">create</property>
+       <!--<property name="hibernate.hbm2ddl.auto">create</property>-->
 
         <!-- List of XML mapping files -->
        <!-- <mapping resource="test.hbm.xml"/> -->
