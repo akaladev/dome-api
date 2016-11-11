@@ -5,7 +5,7 @@
 <hibernate-mapping package="com.dome.base.model" >
 
     <class name="Specie"
-           table="provincial_status"
+           table="specie"
            lazy="true">
 
         <!-- Common id property. -->
