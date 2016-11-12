@@ -17,7 +17,7 @@ public class BaseRepository {
              return dao.findList(entityClass);
             
         }catch(ComponentNotFoundException exp ){
-             exp.printStackTrace();    
+             //exp.printStackTrace();
         }
         return null;
     }
@@ -29,7 +29,7 @@ public class BaseRepository {
             return dao.find(entityClass, id);
 
         }catch(ComponentNotFoundException exp ){
-            exp.printStackTrace();
+            //exp.printStackTrace();
         }
         return null;
     }
@@ -41,7 +41,7 @@ public class BaseRepository {
             dao.save(model);
 
         }catch(ComponentNotFoundException exp ){
-            exp.printStackTrace();
+            //exp.printStackTrace();
         }
 
     }

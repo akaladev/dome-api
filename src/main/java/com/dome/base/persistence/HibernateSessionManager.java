@@ -94,8 +94,9 @@ public class HibernateSessionManager implements SessionManager{
 			return this.getSessionFactory().getCurrentSession();
 		}
 		catch(Exception e) {
-			return null;
+			//e.printStackTrace();
 		}
+         return null;
 	}
     
     
