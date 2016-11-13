@@ -20,14 +20,14 @@ import org.slf4j.LoggerFactory;
 
 public class HibernateSessionManager implements SessionManager{
     
-    private String configFile;
-    private SessionFactory sessionFactory;
-    private Properties configProperties;
-    
+    private static  String configFile;
+    private static  SessionFactory sessionFactory;
+    private static  Properties configProperties;
+
     private static final Logger LOGGER = LoggerFactory.getLogger(HibernateSessionManager.class);
-    
-    public HibernateSessionManager() throws ConfigurationException{
-        
+
+    static {
+
         InputStream propertiesStream = null;
         String resourceName = null;
         try {
@@ -50,7 +50,11 @@ public class HibernateSessionManager implements SessionManager{
                 msg = datasourceProperty + " is not specified.";
                 throw new ConfigurationException(msg);
             }
-            initializeConfigs(datasourceConfigPath);
+            configFile = datasourceConfigPath;
+            Configuration conf = new Configuration();
+            conf.configure(configFile);
+            sessionFactory = conf.buildSessionFactory();
+            //initializeConfigs(datasourceConfigPath);
         } catch (Exception e) {
             throw new ConfigurationException(e.getMessage(),e);
         } finally {
@@ -66,7 +70,7 @@ public class HibernateSessionManager implements SessionManager{
             } // if
         } // try
     }
-    
+
     /**
      * This is used to create and initializes sessions
      * for data access objects.
@@ -76,12 +80,12 @@ public class HibernateSessionManager implements SessionManager{
     @Override
     public void initializeConfigs(String file) throws HibernateException {
        Configuration conf = new Configuration();
-        
+
        if (null != file) {
             this.configFile = file;
 			conf.configure(this.configFile);
        }
-       this.sessionFactory = conf.buildSessionFactory();     
+       this.sessionFactory = conf.buildSessionFactory();
     } 
 
     /**

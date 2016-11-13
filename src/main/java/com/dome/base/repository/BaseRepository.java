@@ -16,9 +16,10 @@ public class BaseRepository {
              AbstractHibernateDao dao = (AbstractHibernateDao) Application.getComponent(beanId);
              return dao.findList(entityClass);
             
-        }catch(ComponentNotFoundException exp ){
+        }catch(Exception exp ){
              //exp.printStackTrace();
         }
+        
         return null;
     }
 
@@ -28,8 +29,8 @@ public class BaseRepository {
             AbstractHibernateDao dao = (AbstractHibernateDao) Application.getComponent(beanId);
             return dao.find(entityClass, id);
 
-        }catch(ComponentNotFoundException exp ){
-            //exp.printStackTrace();
+        }catch(Exception exp ){
+             //exp.printStackTrace();
         }
         return null;
     }
@@ -40,8 +41,8 @@ public class BaseRepository {
             AbstractHibernateDao dao = (AbstractHibernateDao) Application.getComponent(beanId);
             dao.save(model);
 
-        }catch(ComponentNotFoundException exp ){
-            //exp.printStackTrace();
+        }catch(Exception exp ){
+             //exp.printStackTrace();
         }
 
     }
