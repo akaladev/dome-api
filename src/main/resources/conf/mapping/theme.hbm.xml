@@ -4,8 +4,8 @@
 
 <hibernate-mapping package="com.dome.base.model" >
 
-    <class name="Specie"
-           table="species"
+    <class name="Theme"
+           table="themes"
            lazy="false">
 
         <!-- Common id property. -->
@@ -16,10 +16,17 @@
             <generator class="native"/>
         </id>
 
-        <property   name="name"
+        <property   name="color"
                     type="string"
-                    column="name">
+                    column="color">
         </property>
+
+        <property   name="images"
+                    type="string"
+                    column="images">
+        </property>
+
+
 
     </class>
 

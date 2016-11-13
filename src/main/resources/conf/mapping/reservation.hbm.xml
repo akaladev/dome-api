@@ -17,12 +17,12 @@
         </id>
 
         <property   name="startdate"
-                    type="date"
+                    type="timestamp"
                     column="start_date">
         </property>
         
         <property   name="enddate"
-                    type="date"
+                    type="timestamp"
                     column="end_date">
         </property>
         

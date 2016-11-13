@@ -1,16 +1,17 @@
 package com.dome.base.model;
 
-import java.sql.Timestamp;
 import java.util.Date;
-public class Reservation{
+
+/**
+ * Created by akalamichael on 11/13/16.
+ */
+public class ReserveModel {
     private long id;
-    private Timestamp startdate;
-    private Timestamp enddate;
+    private String startdate;
+    private String enddate;
     private String reserver;
-    
-    public Reservation(){
-        
-    }
+
+    public ReserveModel(){}
 
     public long getId() {
         return id;
@@ -20,19 +21,19 @@ public class Reservation{
         this.id = id;
     }
 
-    public Timestamp getStartdate() {
+    public String getStartdate() {
         return startdate;
     }
 
-    public void setStartdate(Timestamp startdate) {
+    public void setStartdate(String startdate) {
         this.startdate = startdate;
     }
 
-    public Timestamp getEnddate() {
+    public String getEnddate() {
         return enddate;
     }
 
-    public void setEnddate(Timestamp enddate) {
+    public void setEnddate(String enddate) {
         this.enddate = enddate;
     }
 

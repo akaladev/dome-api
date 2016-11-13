@@ -19,5 +19,10 @@
     <bean id="reservationDaoImpl" class="com.dome.base.bindings.ReservationDaoImpl">
     </bean>
     <bean id="specieDaoImpl" class="com.dome.base.bindings.SpecieDaoImpl">
-    </bean> 
+    </bean>
+    <bean id="themeDaoImpl" class="com.dome.base.bindings.ThemeDaoImpl">
+    </bean>
+    <bean id="qRCodeDaoImpl" class="com.dome.base.bindings.QRCodeDaoImpl">
+    </bean>
+
 </beans>

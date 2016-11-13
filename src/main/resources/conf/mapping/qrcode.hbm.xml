@@ -4,8 +4,8 @@
 
 <hibernate-mapping package="com.dome.base.model" >
 
-    <class name="Specie"
-           table="species"
+    <class name="QRCode"
+           table="stack"
            lazy="false">
 
         <!-- Common id property. -->
@@ -16,9 +16,9 @@
             <generator class="native"/>
         </id>
 
-        <property   name="name"
+        <property   name="animalId"
                     type="string"
-                    column="name">
+                    column="animalId">
         </property>
 
     </class>

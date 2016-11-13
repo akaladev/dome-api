@@ -40,7 +40,22 @@ public class AnimalController {
         List<Animal> animals = BaseRepository.findList(Animal.class);
         return new ResponseEntity<List<Animal>>(animals, OK);
     }
-    
+
+    @ApiOperation(value = "Get a task associated to the given id")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = ""),
+            @ApiResponse(code = 404, message = "If the task with this id, doesn't exist")
+    })
+    @RequestMapping(value = "/animal/{id}", method = GET, produces = APPLICATION_JSON_VALUE)
+    public ResponseEntity<Animal> getAnimal(@PathVariable("id") long id) {
+        Animal model = null;
+        model = (Animal) BaseRepository.find(Animal.class, id);
+        return new ResponseEntity<Animal>(model, OK);
+
+    }
+
+
+
     @ApiOperation(value = "add instruction")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "")
