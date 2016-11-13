@@ -5,7 +5,7 @@ package com.dome.base.model;
  */
 public class QRCode {
     public long id;
-    public String animalId;
+    public long animalId;
     public QRCode(){}
 
     public long getId() {
@@ -16,11 +16,11 @@ public class QRCode {
         this.id = id;
     }
 
-    public String getAnimalId() {
+    public long getAnimalId() {
         return animalId;
     }
 
-    public void setAnimalId(String animalId) {
+    public void setAnimalId(long animalId) {
         this.animalId = animalId;
     }
 }

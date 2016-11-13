@@ -2,8 +2,7 @@ package com.dome.base.service;
 
 import java.util.List;
 
-import com.dome.base.application.Application;
-import com.dome.base.application.exception.ComponentNotFoundException;
+
 import com.dome.base.model.Specie;
 import com.dome.base.repository.BaseRepository;
 

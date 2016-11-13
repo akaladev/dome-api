@@ -17,7 +17,7 @@
         </id>
 
         <property   name="animalId"
-                    type="string"
+                    type="long"
                     column="animalId">
         </property>
 
