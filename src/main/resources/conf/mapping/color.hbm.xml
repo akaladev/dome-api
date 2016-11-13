@@ -6,7 +6,7 @@
 
     <class name="Color"
            table="color"
-           lazy="true">
+           lazy="false">
 
         <!-- Common id property. -->
         <id name="id"

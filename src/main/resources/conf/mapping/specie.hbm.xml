@@ -6,7 +6,7 @@
 
     <class name="Specie"
            table="specie"
-           lazy="true">
+           lazy="false">
 
         <!-- Common id property. -->
         <id name="id"

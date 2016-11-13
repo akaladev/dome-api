@@ -17,7 +17,7 @@ public class BaseRepository {
              return dao.findList(entityClass);
             
         }catch(Exception exp ){
-             //exp.printStackTrace();
+             exp.printStackTrace();
         }
         
         return null;

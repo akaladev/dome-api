@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
-
+import org.hibernate.Hibernate;
 import java.util.List;
 
 import static org.springframework.http.HttpStatus.*;
@@ -38,6 +38,9 @@ public class AnimalController {
     @RequestMapping(value = "/animal/findByList", method = GET)
     public ResponseEntity<List<Animal>>  getAnimals(){
         List<Animal> animals = BaseRepository.findList(Animal.class);
+        System.out.println(animals.get(0).getName());
+
+
         return new ResponseEntity<List<Animal>>(animals, OK);
     }
     

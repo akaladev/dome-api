@@ -64,7 +64,8 @@ public abstract class AbstractHibernateDao {
             return query.list();
             
 		} catch (Exception e) {
-			throw new DataAccessException(entityClass.getClass(), e);
+			e.printStackTrace();
+			//throw new DataAccessException(entityClass.getClass(), e);
 		} finally {
 			if (null != session) {
 				try {
@@ -73,7 +74,8 @@ public abstract class AbstractHibernateDao {
 					e.printStackTrace();
 				}
 			}
-		}  
+		}
+		return null;
     }
     
     

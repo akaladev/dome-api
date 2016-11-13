@@ -10,19 +10,18 @@
         </property>
         <!-- Assume test is the database name -->
         <property name="hibernate.connection.url">
-            jdbc:mysql://70.32.108.82:3306/domedb
+            jdbc:mysql://localhost:3306/domedb
         </property>
         <property name="hibernate.connection.username">
-            sample
+            root
         </property>
-        <property name="hibernate.connection.password">
-            test
-        </property>
+
 
         <!-- C3p0 -->
         <property name="hibernate.connection.provider_class">
             org.hibernate.connection.C3P0ConnectionProvider
         </property>
+
         <property name="hibernate.c3p0.acquire_increment">1</property>
         <property name="hibernate.c3p0.idle_test_period">300</property>
         <property name="hibernate.c3p0.timeout">120</property>
