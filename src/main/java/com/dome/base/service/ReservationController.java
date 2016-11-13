@@ -46,6 +46,7 @@ public class ReservationController {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         for(Reservation r : reservations){
             ReserveModel model = new ReserveModel();
+            model.setId(r.getId());
             model.setReserver(r.getReserver());
             model.setEnddate(formatter.format(r.getEnddate()));
             model.setStartdate(formatter.format(r.getStartdate()));
