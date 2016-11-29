@@ -35,21 +35,28 @@ public class QRCodeController {
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "") })
     @RequestMapping(value = "/qrcode/findByList", method = GET)
-    public ResponseEntity<List<QRCode>>  getColor(){
+    public ResponseEntity<List<QRCode>>  getQRCode(){
         List<QRCode> colors = BaseRepository.findList(QRCode.class);
         return new ResponseEntity<List<QRCode>>(colors, OK);
     }
 
     @ApiOperation(value = "add a qrcode with a given name.")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "")
+            @ApiResponse(code = 200, message = ""),
+            @ApiResponse(code = 404, message = "If the task with this id, doesn't exist")
     })
-    @RequestMapping(value = "/qrcode/", method = POST)
-    public ResponseEntity<Void> createColor(@RequestBody QRCode model, UriComponentsBuilder ucBuilder) {
-        BaseRepository.save(model, QRCode.class);
-        HttpHeaders headers = new HttpHeaders();
-        return new ResponseEntity<Void>(headers, CREATED);
+    @RequestMapping(value = "/qrcode/{id}", method = GET, produces = APPLICATION_JSON_VALUE)
+    public ResponseEntity<QRCode> createQRCode(@PathVariable("id") long id) {
+        QRCode qrcode = new QRCode();
+        qrcode.setAnimalId(id);
+        BaseRepository.save(qrcode, QRCode.class);
+        return new ResponseEntity<QRCode>(qrcode, OK);
+
     }
+
+
+
+
 
 }
 
