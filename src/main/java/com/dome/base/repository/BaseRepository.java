@@ -9,7 +9,7 @@ import java.util.List;
 public class BaseRepository {
 
 
-
+guggugu
     public static <I> List<I> findList(Class<? extends Object> entityClass){
         try{
              String beanId = Contract.getBeanId(entityClass);
